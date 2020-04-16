@@ -19,6 +19,7 @@ public class Snake : MonoBehaviour {
 	}
 
 	private Direction gridMoveDirection;
+	private Direction gridNextDirection;
 	private Vector2Int gridPosition;
 
 	private float gridMoveTimer;
@@ -40,7 +41,7 @@ public class Snake : MonoBehaviour {
 	{
 		gridPosition = new Vector2Int (10, 10);
 		gridMoveTimerMax = gridMoveTimer = .5f;
-		gridMoveDirection = Direction.Up;
+		gridMoveDirection = gridNextDirection = Direction.Up;
 		state = State.Alive;
 
 		snakeMovePositionList = new List<SnakeMovePosition> ();
@@ -66,19 +67,19 @@ public class Snake : MonoBehaviour {
 	{
 
 		if (Input.GetKeyDown (KeyCode.UpArrow) && gridMoveDirection != Direction.Down) {
-			gridMoveDirection = Direction.Up;
+			gridNextDirection = Direction.Up;
 		}
 
 		if (Input.GetKeyDown (KeyCode.DownArrow) && gridMoveDirection != Direction.Up) {
-			gridMoveDirection = Direction.Down;
+			gridNextDirection = Direction.Down;
 		}
 
 		if (Input.GetKeyDown (KeyCode.RightArrow) && gridMoveDirection != Direction.Left) {
-			gridMoveDirection = Direction.Right;
+			gridNextDirection = Direction.Right;
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow) && gridMoveDirection != Direction.Right) {
-			gridMoveDirection = Direction.Left;
+			gridNextDirection = Direction.Left;
 		}
 
 	}
@@ -92,17 +93,16 @@ public class Snake : MonoBehaviour {
 
 			SoundManager.PlaySound (SoundManager.Sound.SnakeMove);
 
-
 			SnakeMovePosition prevoiusSnakeMovePosition = null;
 			if (snakeMovePositionList.Count > 0) {
 				prevoiusSnakeMovePosition = snakeMovePositionList [0];
 			}
 
-			SnakeMovePosition snakeMovePosition = new SnakeMovePosition (prevoiusSnakeMovePosition, gridPosition, gridMoveDirection);
+			SnakeMovePosition snakeMovePosition = new SnakeMovePosition (prevoiusSnakeMovePosition, gridPosition, gridNextDirection);
 			snakeMovePositionList.Insert (0, snakeMovePosition);
 
 			Vector2Int gridMoveDirectionVector;
-			switch (gridMoveDirection) {
+			switch (gridNextDirection) {
 			default:
 			case Direction.Up: gridMoveDirectionVector = new Vector2Int (0, 1); break;
 			case Direction.Right: gridMoveDirectionVector = new Vector2Int (1, 0); break;
@@ -141,6 +141,8 @@ public class Snake : MonoBehaviour {
 			transform.eulerAngles = new Vector3 (0, 0, GetAngleFromVector (gridMoveDirectionVector) - 90);
 
 			UpdateSnakeBodyParts ();
+
+			gridMoveDirection = gridNextDirection;
 		}
 	}
 
