@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{27E3B7BB-7210-4DB8-2CDE-8C5F9221D3B6}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameHandler.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameHandler.cs" Line="41" Column="29" IsPinned="True" />
+      <File FileName="Assets/Scripts/SoundManager.cs" Line="38" Column="31" />
+      <File FileName="Assets/Scripts/ScoreWindow.cs" Line="42" Column="3" />
+      <File FileName="Assets/Scripts/Score.cs" Line="13" Column="29" />
+      <File FileName="Assets/Scripts/PausedWindow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOverWindow.cs" Line="29" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Snake" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="GameHandler.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1dbcd6f0-3cd9-4821-ba8b-1215c11f5c7e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
